@@ -1,9 +1,11 @@
 <script>
 import AppJumbotron from './AppJumbotron.vue';
+import AppShowCars from './AppShowCars.vue';
 export default {
     name: "AppMain",
     components: {
         AppJumbotron,
+        AppShowCars,
     },
     data() {
         return {
@@ -14,6 +16,7 @@ export default {
 </script>
 <template>
     <AppJumbotron />
+    <AppShowCars />
 </template>
 
 <style scoped>

@@ -16,6 +16,12 @@
                 </div>
             </div>
             <!-- /.jumbo_item -->
+            <a class="a_right" href="#">
+                <i class="fa-solid fa-arrow-right"></i>
+            </a> 
+            <a class="a_left" href="#">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
         </div>
         <!-- /.jumbo_container -->
     </div>
@@ -25,13 +31,12 @@
 
 <style scoped>
     #site_jumbo {
-        padding-top: 50px;
         background-image: url(../assets/img/slider-autocar-5.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position:center;
-        width: 100vw;
-        aspect-ratio: 2;
+        width: calc(100wv - 50px);
+        aspect-ratio: 2.3;
         
         >.jumbo_container{
             position: relative;
@@ -63,6 +68,23 @@
                         font-size: 1.2rem;
                     }
                 }
+            };
+            >.a_left, >.a_right{
+                position: absolute;
+                font-size: 2rem;
+                color: white;
+                bottom: 50%;
+                padding: 0 1rem;
+                &:hover {
+                        color: gray;
+                };
+            }
+            .a_right{
+                right: 0;                
+            }
+            
+            .a_left{
+                left: 0;
             }
         }
     }
