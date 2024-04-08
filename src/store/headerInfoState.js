@@ -15,9 +15,11 @@ export const headerInfoState = reactive({
       },
       actions: {
         myAccount: "My Account",
+        myAccountLogo: "padlock.png",
         addCar: "Add Car",
+        addCarLogo: "add.png",
         phoneNumber: "+1 (234) 567 89 10",
-        menu: '<i class="fa-solid fa-bars"></i>',
+        phoneNumberLogo: "headphones.png",
       },
     },
   ],
