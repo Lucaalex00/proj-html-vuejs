@@ -21,6 +21,7 @@ export default {
                 <div>
                     <img class="logo" :src="`../src/assets/logos/${headerItem.info.logoHeader_path}`" alt="Logo">
                 </div>
+                <!-- LOGO IMAGE -->
                 <div class="header_info">
                     <div>
                         {{ headerItem.info.homeString }}
@@ -43,6 +44,7 @@ export default {
                     <div>
                         {{ headerItem.info.contactString }}
                     </div>
+                    <!-- INFO -->
                     <div class="actions">
                         <a class="cta" href="#">
                             <img :src="`../src/assets/logos/${headerItem.actions.myAccountLogo}`" alt="">{{
@@ -55,6 +57,7 @@ export default {
                             <img :src="`../src/assets/logos/${headerItem.actions.phoneNumberLogo}`" alt="">{{
                             headerItem.actions.phoneNumber }}</a>
                     </div>
+                    <!-- ACTIONS -->
                 </div>
             </div>
             <!-- /.header_item -->
@@ -68,7 +71,7 @@ export default {
 
 <style scoped>
 #site_header{
-    background-color: var(--dark-color);
+    background-color: var(--lighter-color);
     width: 100vw;
     height: 50px;
     position: fixed;
@@ -99,9 +102,10 @@ export default {
                     padding: 0.3rem;
                     text-decoration: none;
                     color: var(--lighter-color);
+                    width: auto;
                         >img{
                             width: 15px;
-                            filter: invert(100%)
+                            filter: invert(100%);
                         }   
                     };
                 };
