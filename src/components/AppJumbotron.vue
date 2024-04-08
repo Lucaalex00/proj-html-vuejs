@@ -11,8 +11,9 @@
                 <h1>Buy and Sell Your Car At Its Value</h1>
                 <p>Find the right price and dealer</p>
                 <div class="cta">
-                    <a href="#">Learn more </a>
-            </div>
+                    <div>Learn more </div>
+                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
             </div>
             <!-- /.jumbo_item -->
         </div>
@@ -29,8 +30,9 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position:center;
-        height: 700px;
         width: 100vw;
+        aspect-ratio: 2;
+        
         >.jumbo_container{
             position: relative;
             height: 100%;
@@ -50,10 +52,15 @@
                 }
                 > .cta{
                     margin: 2rem 1rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
                     >a{
                     text-decoration: none;
                     color: var(--lighter-color);
-
+                    }
+                    i{
+                        font-size: 1.2rem;
                     }
                 }
             }
