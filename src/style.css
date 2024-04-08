@@ -5,3 +5,10 @@
   --dark-color:#AAAAAA;
   --darkest-color: #000000;
 }
+
+/* RESET */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
