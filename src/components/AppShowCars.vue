@@ -123,6 +123,7 @@
             padding: 1rem 2rem;
             position: relative;
             box-shadow: 1px 1px black;
+            transition: 500ms;
             &:hover {
                 background-color: var(--dark-color);
                 border: 1px solid var(--darkest-color);
@@ -191,11 +192,11 @@
                 gap: 0.5rem;
                 padding: 0.5rem;
                 position: relative;
+                transition: 1000ms;
                 &:hover{
                     margin: auto;
                     background-color: black;
                     color: white;
-                    z-index: 3;
                     }
                 >img{
                     width: 100%;
@@ -220,6 +221,7 @@
                     bottom: 0;
                     padding: 1rem;
                     color: var(--dark-color);
+                    transition: 500ms;
                     &:hover{
                         color: red;
                     }
@@ -237,6 +239,7 @@
         padding: 1rem;
         cursor: pointer;
         margin-bottom: 50px;
+        transition: 500ms;
         &:hover{
             color: var(--darkest-color);
             background-color: var(--dark-color);

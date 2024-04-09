@@ -75,6 +75,7 @@
                 color: white;
                 bottom: 50%;
                 padding: 0 1rem;
+                transition: 500ms;
                 &:hover {
                         color: gray;
                 };
