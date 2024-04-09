@@ -1,6 +1,9 @@
 <script>
     export default {
-        name: "showCarsComponent",
+    name: "showCarsComponent",
+    props: {
+            cars:Array,
+        }
         
     }
 </script>
@@ -74,38 +77,38 @@
         <!-- /.category_container -->
         <div class="show_cars">
             <div class="row">
-                <div class="card">
-                    <img src="../assets/img/bmw-8-series-convertible-technical-data-sp-desktop-400x300.jpg" alt="Suv">
-                    <div>BMW M9</div>
-                    <div>Cabrio</div>
+                <div class="card" v-for="car in cars">
+                    <img :src="`../src/assets/img/${car.path}`" :alt="`${car.type}`">
+                    <div> {{car.name}} <i class="fa-solid fa-circle-check"></i></div>
+                    <div> {{ car.type }}</div>
                     <div class="card_details">
                         <span>
                             <i class="fa-solid fa-dollar-sign"></i>
-                            <span> 34.000</span>
+                            <span> {{car.cost}}$</span>
                         </span>
                         <span>
-                            <i class="fa-solid fa-car"></i> <span> BMW</span>
+                            <i class="fa-solid fa-car"></i> <span> {{ car.brand }}</span>
                         </span>
                         <span>
                             <i class="fa-solid fa-gas-pump"></i>
-                            <span> Electric</span>
+                            <span> {{car.alimentation}}</span>
                         </span>
                     </div>
+                    <i class="fa-solid fa-heart"></i>
                 </div>
             </div>
         </div>
         <!-- /.show_cars -->
-
+        <button>Show all Cars <i class="fa-solid fa-arrow-right"></i></button>
 
     </div>
-    <!-- /#search_cars -->
+    <!-- /#site_search_cars -->
 </template>
 
 
 <style scoped>
 
 #site_search_cars{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 80%;
     margin: auto;
     padding: 0.5rem;
@@ -169,19 +172,33 @@
         }
     }
     >.show_cars{
+        font-family: "Open Sans", sans-serif;
         display: flex;
         flex-wrap: wrap;
-        border: 1px solid var(--dark-color);
+        border: 1px solid var(--box-shadow);
         box-shadow: 2px 2px var(--box-shadow);
         >.row{
             display: flex;
-            width: calc(100% / 4);
-
+            flex-wrap: wrap; 
+            position: relative;
+            
             >.card{
+                box-shadow: 2px 2px var(--box-shadow);  
+                width: calc(100% / 4);
                 display: flex;
                 flex-direction: column;
                 align-items: start;
+                gap: 0.5rem;
                 padding: 0.5rem;
+                position: relative;
+                &:active{
+                    position: absolute;
+                    width: 60%;
+                    margin: auto;
+                    background-color: black;
+                    color: white;
+                    z-index: 3;
+                    }
                 >img{
                     width: 100%;
                 }
@@ -191,12 +208,39 @@
                 >.card_details{
                     display: flex;
                     gap: 0.5rem;
-                    >span>span{
-                        font-size: 0.6rem;
-
+                    >span{
+                        display: flex;
+                        gap: 0.2rem;
+                        >span{
+                            font-size: 0.7rem;
+                        };
+                    };
+                };
+                >i{
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    padding: 1rem;
+                    color: var(--dark-color);
+                    &:hover{
+                        color: red;
                     }
                 }
             }
+        }
+    }
+    >button{
+        font-family: "Open Sans", sans-serif;
+        font-weight: bold;
+        width: 20%;
+        margin: auto;
+        background-color: var(--darkest-color);
+        color: var(--lighter-color);
+        padding: 1rem;
+        cursor: pointer;
+        &:hover{
+            color: var(--darkest-color);
+            background-color: var(--dark-color);
         }
     }
 }

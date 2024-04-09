@@ -4,7 +4,7 @@ import AppMain from './components/AppMain.vue';
 export default {
   data() {
     return {
-      headerInfo: [
+      Info: [
         {
         
         homeString: "Home",
@@ -17,7 +17,7 @@ export default {
         
       },
     ],
-      headerCta: [
+      Cta: [
         {
       myAccount: "My Account",
       myAccountLogo: "padlock.png",
@@ -28,7 +28,7 @@ export default {
       
         },
       ],
-      headerPath: {
+      Path: {
         logoHeader_path: "logo-autocar11.png",
         logoFooter_path: "logo-footer-autocar11.png",
       },
@@ -42,7 +42,7 @@ export default {
 </script>
 
 <template>
-  <AppHeader :headerInfo="headerInfo" :headerCta="headerCta" :headerPath="headerPath"/>
+  <AppHeader :Info="Info" :Cta="Cta" :Path="Path"/>
   <AppMain/>
 
 </template>

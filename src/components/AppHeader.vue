@@ -2,13 +2,13 @@
 export default {
     name: "AppHeader",
     props: {
-        headerInfo: {
+        Info: {
             type: Array,
         },
-        headerCta: {
+        Cta: {
             type: Array,
         },
-        headerPath: {
+        Path: {
             type:Object,
         }
     },
@@ -17,17 +17,17 @@ export default {
 <template>
     <div id="site_header">
         <div class="header_container">
-            <div class="header_item" v-for="(headerItem, index) in headerInfo" :key="index">
+            <div class="header_item" v-for="(headerItem, index) in Info" :key="index">
                 <div>
                     <!-- Logo -->
-                    <img class="logo" :src="`../src/assets/logos/${headerPath.logoHeader_path}`" alt="Logo">
+                    <img class="logo" :src="`../src/assets/logos/${Path.logoHeader_path}`" alt="Logo">
                 </div>
                 <!-- LOGO IMAGE -->
                 <div class="header_info">
                     <!-- Link per ogni sezione -->
                     <a v-for="value in headerItem" :href="value" class="header_link">{{ value }}</a>
                     <!-- Azioni -->
-                    <div v-for="ctaItem in headerCta" class="actions">
+                    <div v-for="ctaItem in Cta" class="actions">
                         <a href="#" class="cta">
                             <img :src="`../src/assets/logos/${ctaItem.myAccountLogo}`" alt=""><div>{{ ctaItem.myAccount
                                 }}</div>
