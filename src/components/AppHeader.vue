@@ -1,80 +1,67 @@
 <script>
-import {headerInfoState} from "../store/headerInfoState"
 export default {
     name: "AppHeader",
-    data() {
-        return {
-            headerInfoState,
-            hInfo: headerInfoState.headerInfo
-            /* ... */
+    props: {
+        headerInfo: {
+            type: Array,
+        },
+        headerCta: {
+            type: Array,
+        },
+        headerPath: {
+            type:Object,
         }
     },
-    mounted() {
-        console.log(this.hInfo)
-    }
 }
 </script>
 <template>
     <div id="site_header">
         <div class="header_container">
-            <div class="header_item" v-for="headerItem in hInfo">
+            <div class="header_item" v-for="(headerItem, index) in headerInfo" :key="index">
                 <div>
-                    <img class="logo" :src="`../src/assets/logos/${headerItem.info.logoHeader_path}`" alt="Logo">
+                    <!-- Logo -->
+                    <img class="logo" :src="`../src/assets/logos/${headerPath.logoHeader_path}`" alt="Logo">
                 </div>
                 <!-- LOGO IMAGE -->
                 <div class="header_info">
-                    <div>
-                        {{ headerItem.info.homeString }}
+                    <!-- Link per ogni sezione -->
+                    <a v-for="value in headerItem" :href="value" class="header_link">{{ value }}</a>
+                    <!-- Azioni -->
+                    <div v-for="ctaItem in headerCta" class="actions">
+                        <a href="#" class="cta">
+                            <img :src="`../src/assets/logos/${ctaItem.myAccountLogo}`" alt=""><div>{{ ctaItem.myAccount
+                                }}</div>
+                        </a>
+                        <a href="#" class="cta">
+                            <img :src="`../src/assets/logos/${ctaItem.addCarLogo}`" alt="">
+                            <div>{{ ctaItem.addCar }}</div>
+                        </a>
+                        <a class="cta_menu" href="#">
+                            <i class="fa-solid fa-bars">
+
+                            </i>
+                        </a>
+                        <a href="#" class="cta">
+                            <img :src="`../src/assets/logos/${ctaItem.phoneNumberLogo}`" alt="">
+                            <div>{{
+                                ctaItem.phoneNumber
+                            }}</div>
+                        </a>
                     </div>
-                    <div>
-                        {{ headerItem.info.aboutString }}
-                    </div>
-                    <div>
-                        {{ headerItem.info.vehiclesString }}
-                    </div>
-                    <div>
-                        {{ headerItem.info.dealersString }}
-                    </div>
-                    <div>
-                        {{ headerItem.info.packagesString }}
-                    </div>
-                    <div>
-                        {{ headerItem.info.blogString }}
-                    </div>
-                    <div>
-                        {{ headerItem.info.contactString }}
-                    </div>
-                    <!-- INFO -->
-                    <div class="actions">
-                        <a class="cta" href="#">
-                            <img :src="`../src/assets/logos/${headerItem.actions.myAccountLogo}`" alt="">{{
-                            headerItem.actions.myAccount }}</a>
-                        <a class="cta" href="#">
-                            <img :src="`../src/assets/logos/${headerItem.actions.addCarLogo}`" alt="">{{
-                            headerItem.actions.addCar }}</a>
-                        <a href="#"><i class="fa-solid fa-bars"></i></a>
-                        <a class="cta" href="#">
-                            <img :src="`../src/assets/logos/${headerItem.actions.phoneNumberLogo}`" alt="">{{
-                            headerItem.actions.phoneNumber }}</a>
-                    </div>
-                    <!-- ACTIONS -->
                 </div>
             </div>
-            <!-- /.header_item -->
-
         </div>
-        <!-- /.header_container -->
     </div>
-    <!-- /#site_header -->
 </template>
 
 
 <style scoped>
 #site_header{
-    background-color: var(--lighter-color);
+    background-color: var(--lighter-header-color);
     width: 100vw;
-    height: 50px;
+    height: 45px;
     position: fixed;
+    z-index: 2;
     display: flex;
     >.header_container{
         width: 60%;
@@ -90,24 +77,53 @@ export default {
                align-items: center;
                font-size: 0.8rem;
                margin-bottom: 10px;
-               gap: 1rem;
+               gap: 0.4rem;
+               >.header_link{
+                width: 50px;
+                text-align: center;
+               }
+               >a{
+                text-decoration: none;
+                color: var(--darkest-color);
+                &:hover{
+                    color: var(--dark-color);
+                    background-color: var(--darkest-color);
+                }
+               }
                .actions{
                 display: flex;
                 align-items: center;
-                gap: 1rem;
-                .cta{
+                gap: 0.5rem;
+                >.cta, cta_menu {
                     display: flex;
-                    gap: 0.5rem;
+                    align-items: center;
                     background-color: var(--darkest-color);
-                    padding: 0.3rem;
+                    border-radius: 2px;
+                    padding: 0.5rem;
+                    width: 100px;
+                    gap: 0.2rem;
                     text-decoration: none;
                     color: var(--lighter-color);
-                    width: auto;
+                    &:last-child{
+                        width: 150px;
+                    }
+                    &:hover{
+                        color: var(--dark-color);
+                    }
+                        >div{
+                            font-size: 0.7rem;
+                            
+                        }
                         >img{
-                            width: 15px;
+                            width: 25px;
                             filter: invert(100%);
-                        }   
+                        }
                     };
+                    >.cta_menu{
+                        font-size: 1rem;
+                        background-color: transparent;
+                        color: var(--darkest-color);
+                    }
                 };
             };
         };

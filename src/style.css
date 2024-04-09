@@ -1,9 +1,12 @@
 /* SET GLOBAL CSS VARIABLES */
 
 :root{
+  --lighter-header-color: rgba(255, 255, 255, 0.700);
   --lighter-color: #ffffff;
   --dark-color:#AAAAAA;
   --darkest-color: #000000;
+
+  --box-shadow: #00000034;
 }
 
 /* RESET */
