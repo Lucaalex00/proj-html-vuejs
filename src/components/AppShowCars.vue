@@ -191,9 +191,7 @@
                 gap: 0.5rem;
                 padding: 0.5rem;
                 position: relative;
-                &:active{
-                    position: absolute;
-                    width: 60%;
+                &:hover{
                     margin: auto;
                     background-color: black;
                     color: white;
@@ -238,6 +236,7 @@
         color: var(--lighter-color);
         padding: 1rem;
         cursor: pointer;
+        margin-bottom: 50px;
         &:hover{
             color: var(--darkest-color);
             background-color: var(--dark-color);
