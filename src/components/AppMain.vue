@@ -2,12 +2,14 @@
 import AppJumbotron from './AppJumbotron.vue';
 import AppShowCars from './AppShowCars.vue';
 import AppSaleCar from './AppSaleCar.vue';
+import AppFeedback from './AppFeedback.vue';
 export default {
     name: "AppMain",
     components: {
         AppJumbotron,
         AppShowCars,
-        AppSaleCar
+        AppSaleCar,
+        AppFeedback,
     },
     data() {
         return {
@@ -79,6 +81,29 @@ export default {
                     alimentation: "Diesel"
                 },
             ],
+            feedbackCard:
+            [
+                {
+                    name: "Adam",
+                    feedbackText: "We are a gallery vehicle dealer. Before we met this site, our sales were sluggish",
+                    imgPath:"man1.png",
+                },
+                {
+                    name: "Cristian",
+                    feedbackText: "One of the quality websites i apply to rent a car. There are hundreds of different tools",
+                    imgPath: "testimonial2-1.png",
+                },
+                {
+                    name: "Robert",
+                    feedbackText: "I was trying to sell my car. And i put it here and sold it for more than it was worth.",
+                    imgPath: "man2.png",
+                },
+                {
+                    name: "Elizabeth",
+                    feedbackText: "A fast and reliable vehicle selling site. Rare quality website with hundreds of model vehicles",
+                    imgPath: "testimonial4-1.png",
+                    },
+            ],
         }
     }
 }
@@ -86,7 +111,8 @@ export default {
 <template>
     <AppJumbotron />
     <AppShowCars :cars="cars" />
-    <AppSaleCar/>
+    <AppSaleCar />
+    <AppFeedback :feedbackCard="feedbackCard" />
 </template>
 
 <style scoped>

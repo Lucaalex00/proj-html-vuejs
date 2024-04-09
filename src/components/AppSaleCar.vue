@@ -62,6 +62,7 @@
         display: flex;
         justify-content: space-between;
         gap: 2rem;
+        margin-bottom: 10%;
         >.img_container{
             width: 50%;
             background-image: url(../assets/logos/circle-auto-car-1.png);
