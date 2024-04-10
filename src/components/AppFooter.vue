@@ -5,7 +5,7 @@
             Info:Array,
             Contacts: Array,
             Path: Object,
-            Socials: Array,
+            Socials: Object,
             MyAccount: Array,
             QuickLinks: Array,
         }
@@ -15,22 +15,27 @@
 <template>
     <div id="site_footer">
         <div class="footer_container">
-            <ul v-for="contactItem in Contacts">
-                <li class="contacts">
+            <ul class="contacts" v-for="contactItem in Contacts">
+                <li>
                     <img :src="`../src/assets/logos/${Path.logoFooter_path}`" alt="Logo">
                     <div class="contact_item">
                         <i v-if="contactItem.addressIcon" :class="`${contactItem.addressIcon}`"></i>
                         <div>{{ contactItem.address }}</div>
-
                     </div>
+                </li>
+                <li>
                     <div class="contact_item">
                         <i v-if="contactItem.phoneNumberIcon" :class="`${contactItem.phoneNumberIcon}`"></i>
                         <div>{{ contactItem.phoneNumber }}</div>
                     </div>
+                </li>
+                <li>
                     <div class="contact_item">
                         <i v-if="contactItem.emailIcon" :class="`${contactItem.emailIcon}`"></i>
                         <div>{{ contactItem.email }}</div>
                     </div>
+                </li>
+                <li>
                     <div class="socials">
                         <i v-for="social in Socials" :class="`${social}`"></i>
                     </div>
@@ -38,8 +43,18 @@
                 <!-- /.contacts -->
 
             </ul>
+            <ul class="newsletter">
+                <li class="newsletter_item">
+                    <h3>Join Our Newsletter</h3>
+                    <p>Subscribe to be informed about our services and products.</p>
+                    <div class="actions">
+                        <input type="text" placeholder="Your Email Address">
+                        <button class="subscribe">Subscribe <i class="fa-solid fa-arrow-right"></i> </button>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <!-- /.footer_container -->
+    <!-- /.footer_container -->
     </div>
     <!-- /#site_footer -->
 </template>
@@ -48,44 +63,70 @@
 <style scoped>
     #site_footer{
         background-color: var(--darkest-color);
+        font-family: "Open Sans", sans-serif;
         >.footer_container{
             width: 80%;
-            display: flex;
-            justify-content: space-between;
             margin: auto;
+            display: flex;
+            justify-content: center;
             padding: 2rem 0;
-            >ul{
+            gap: 1rem;
+            >.contacts{
+                color: var(--lighter-color);
+                list-style: none;
                 display: flex;
                 flex-direction: column;
-                >li{
-                    color: var(--lighter-color);
-                    >img{
-                        width: 30%;
+                gap: 1rem;
+                width: calc(100% / 4);
+                >li>img {
+                        width: 80%;
                     };
-                };
-                >.contacts{
+                >li>.contact_item{
+                    display: flex;
+                    gap: 1rem;
+                    align-items:end;
+                    >div{
+                        text-decoration: none;
+                        color: var(--lighter-color);
+                        font-size: 0.8rem
+                    };
+                    >i{
+                        font-size: 1.3rem;
+                        color: var(--darkest-color);
+                        text-shadow: 2px 2px var(--lighter-color)
+                    }
+                }
+                >li>.socials{
+                    display: flex;
+                    gap: 2rem;
+                }
+            };
+            >.newsletter{
+                list-style: none;
+                color: var(--lighter-color);
+                width: calc(100% / 3);
+                .newsletter_item{
+                    gap: 1rem;
                     display: flex;
                     flex-direction: column;
-                    gap: 1rem;
-                    >.contact_item{
-                        display: flex;
-                        gap: 1rem;
-                        align-items:end;
-                        >div{
-                            text-decoration: none;
-                            color: var(--lighter-color);
-                            font-size: 0.7rem
-                        };
-                        >i{
-                            font-size: 1.3rem;
-                            color: var(--darkest-color);
-                            text-shadow: 2px 2px var(--lighter-color)
+                    >p{
+                        font-size: 0.6rem;
+                    };
+                    >.actions{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    gap: 0.2rem;
+                    >input, >button{
+                    border: 0;
+                    border-radius: 2px;
+                    height: 50px;
+                    padding: 20px;
+                        &+button{
+                            color:var(--dark-color)
                         }
                     }
-                    >.socials{
-                        display: flex;
-                        gap: 2rem;
-                    }
+                    };
                 };
             };
         };
