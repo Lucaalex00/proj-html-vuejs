@@ -37,7 +37,7 @@
                 </li>
                 <li>
                     <div class="socials">
-                        <i v-for="social in Socials" :class="`${social}`"></i>
+                        <a href="#" v-for="social in Socials" :class="`${social}`"></a>
                     </div>
                 </li>
                 <!-- /.contacts -->
@@ -53,8 +53,36 @@
                     </div>
                 </li>
             </ul>
+            <!-- /.newsletter -->
+
+            <div class="nav_footer">
+                <ul class="my_account" v-for="myAccItem in MyAccount">
+                    <li>
+                        <h3>My Account</h3>
+                    </li>
+                    <li class="my_account_item" v-for="myAccValue in myAccItem">
+                        <span>-</span>
+                        <a href="#">
+                            {{myAccValue}}
+                        </a>
+                    </li>
+                </ul>
+                <ul class="quick_links" v-for="quickLinkItem in QuickLinks">
+                    <li>
+                        <h3>Quick Links</h3>
+                    </li>
+                    <li class="quick_links_item" v-for="quickLValue in quickLinkItem">
+                        <span>-</span>
+                        <a href="#">
+                            {{ quickLValue }}
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.my_account -->
+            </div>
+            <!-- /.nav_footer -->
         </div>
-    <!-- /.footer_container -->
+        <!-- /.footer_container -->
     </div>
     <!-- /#site_footer -->
 </template>
@@ -65,7 +93,7 @@
         background-color: var(--darkest-color);
         font-family: "Open Sans", sans-serif;
         >.footer_container{
-            width: 80%;
+            width: 100%;
             margin: auto;
             display: flex;
             justify-content: center;
@@ -79,7 +107,7 @@
                 gap: 1rem;
                 width: calc(100% / 4);
                 >li>img {
-                        width: 80%;
+                        width: 70%;
                     };
                 >li>.contact_item{
                     display: flex;
@@ -98,37 +126,83 @@
                 }
                 >li>.socials{
                     display: flex;
+                    padding: 0 1rem ;
                     gap: 2rem;
+                    >a{
+                        font-size: 1.2rem;
+                        color: var(--lighter-color);
+                        text-decoration: none;
+                        &:hover{
+                            color: var(--dark-color)
+                        }
+                    }
                 }
             };
             >.newsletter{
                 list-style: none;
                 color: var(--lighter-color);
                 width: calc(100% / 3);
-                .newsletter_item{
-                    gap: 1rem;
-                    display: flex;
-                    flex-direction: column;
-                    >p{
-                        font-size: 0.6rem;
-                    };
-                    >.actions{
-                    display: flex;
-                    flex-direction: column;
-                    width: 100%;
-                    gap: 0.2rem;
-                    >input, >button{
-                    border: 0;
-                    border-radius: 2px;
-                    height: 50px;
-                    padding: 20px;
-                        &+button{
-                            color:var(--dark-color)
-                        }
-                    }
+                    .newsletter_item{
+                        gap: 0.5rem;
+                        display: flex;
+                        flex-direction: column;
+                        >p{
+                            font-size: 0.6rem;
+                            margin-bottom: 1rem
+                        };
+                        >.actions{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        gap: 0.2rem;
+                        >input, >button{
+                            border: 0;
+                            border-radius: 2px;
+                            height: 50px;
+                            padding: 20px;
+                            &+button{
+                                color:var(--dark-color);
+                                cursor: pointer;
+                                transition: 500ms;
+                                &:hover{
+                                    background-color: var(--dark-color);
+                                    color: var(--darkest-color)
+                                }
+                            };
+                        };
                     };
                 };
             };
+            >.nav_footer{
+                padding: 0 2rem ;
+                gap: 5rem;
+                display: flex;
+                justify-content: space-between;
+                >.my_account, .quick_links{
+                    color: var(--lighter-color);
+                    list-style-type: none;
+                    >li:first-child{
+                        margin-bottom: 0.5rem;
+                    }
+                    >.my_account_item, .quick_links_item{
+                        font-size: 0.8rem;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        >span {
+                            font-weight: bold;
+                            font-size: 1.3rem;
+                        };
+                        >a{
+                            color: var(--lighter-color);
+                            text-decoration: none;
+                            &:hover{
+                                color: var(--dark-color)
+                            }
+                        }
+                    };
+                };
+            }
         };
     };
 </style>
