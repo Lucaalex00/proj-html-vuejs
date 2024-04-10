@@ -40,7 +40,7 @@
                         <a href="#" v-for="social in Socials" :class="`${social}`"></a>
                     </div>
                 </li>
-                
+
             </ul>
             <!-- /.contacts -->
             <ul class="newsletter">
@@ -83,7 +83,8 @@
         <div class="credits">
             <i class="fa-regular fa-copyright"></i>
             2022 Autocar - All Right Reserved.
-            <div id="my_credits">Made by Luca Cirio</div>
+            <a href="https://github.com/Lucaalex00"
+            target="_blank" id="my_credits">Made by Luca Cirio</a>
         </div>
         <!-- /.credits -->
     </div>
@@ -111,16 +112,17 @@
                 gap: 1rem;
                 width: calc(100% / 4);
                 >li>img {
-                        width: 70%;
-                    };
+                    width: 50%;
+                    margin-bottom: 1rem
+                };
                 >li>.contact_item{
                     display: flex;
-                    gap: 1rem;
+                    gap: 0.5rem;
                     align-items:end;
                     >div{
                         text-decoration: none;
                         color: var(--lighter-color);
-                        font-size: 0.8rem
+                        font-size: 0.8rem;
                     };
                     >i{
                         font-size: 1.3rem;
@@ -164,7 +166,7 @@
                             border-radius: 2px;
                             height: 50px;
                             padding: 20px;
-                            width: 100%;
+                            width: 80%;
                             &+button{
                                 color:var(--dark-color);
                                 cursor: pointer;
@@ -199,9 +201,6 @@
                             font-weight: bold;
                             font-size: 1.3rem;
 
-                        }
-                        >span {
-                            
                         };
                         >a{
                             color: var(--lighter-color);
@@ -219,14 +218,18 @@
             font-size: 0.8rem;
             color: var(--lighter-color);
             text-align: center;
-            >#my_credits{
+            > #my_credits{
                 position: absolute;
                 bottom:1rem;
                 right: 1rem;
+                color: var(--lighter-color);
+                text-decoration: none;
+                transition: 1000ms;
                 &:hover{
+                    font-size: 1rem;
                     color: red;
-                }
-            }
-        }
+                };
+            };
+        };
     };
 </style>

@@ -3,8 +3,13 @@
     name: "showCarsComponent",
     props: {
             cars:Array,
+    },
+    data() {
+        return {
+            heartSwitch: false,
         }
-        
+    }   
+
     }
 </script>
 
@@ -219,7 +224,7 @@
                     position: absolute;
                     right: 0;
                     bottom: 0;
-                    padding: 1rem;
+                    padding: 0.5rem;
                     color: var(--dark-color);
                     transition: 500ms;
                     &:hover{

@@ -18,21 +18,22 @@ export default {
     <div id="site_header">
         <div class="header_container">
             <div class="header_item" v-for="headerItem in Info">
-                <div>
+                <div class="logo_container">
                     <!-- Logo -->
                     <img class="logo" :src="`../src/assets/logos/${Path.logoHeader_path}`" alt="Logo">
                 </div>
-                <!-- LOGO IMAGE -->
+                <!-- /.logo_container -->
                 <div class="header_info">
-                    <!-- Link per ogni sezione -->
+                    <!-- Anchor Tag for every item -->
                     <a v-for="value in headerItem" :href="value" class="header_link">{{ value }}</a>
-                    <!-- Azioni -->
+                    <!-- Actions -->
                     <div v-for="ctaItem in Cta" class="actions">
                         <a href="#" class="cta">
-                            <img :src="`../src/assets/logos/${ctaItem.myAccountLogo}`" alt=""><div>{{ ctaItem.myAccount
+                            <img :src="`../src/assets/logos/${ctaItem.myAccountLogo}`" alt="">
+                            <div>{{ ctaItem.myAccount
                                 }}</div>
                         </a>
-                        <a href="#" class="cta">
+                        <a href="#site_search_cars" class="cta">
                             <img :src="`../src/assets/logos/${ctaItem.addCarLogo}`" alt="">
                             <div>{{ ctaItem.addCar }}</div>
                         </a>
@@ -45,13 +46,16 @@ export default {
                             <img :src="`../src/assets/logos/${ctaItem.phoneNumberLogo}`" alt="">
                             <div>{{
                                 ctaItem.phoneNumber
-                            }}</div>
+                                }}</div>
                         </a>
                     </div>
                 </div>
             </div>
+            <!-- /.header_item -->
         </div>
+        <!-- /.header_container -->
     </div>
+    <!-- /#site_header -->
 </template>
 
 
@@ -59,7 +63,7 @@ export default {
 #site_header{
     background-color: var(--lighter-header-color);
     width: 100vw;
-    height: 45px;
+    height: 60px;
     position: fixed;
     z-index: 2;
     display: flex;
@@ -68,15 +72,19 @@ export default {
         margin: auto;
         >.header_item{
             display: flex;
-            justify-content: space-around;
-            .logo{
-                height: 50px;
-            };
+            justify-content: center;
+            >.logo_container{
+                display: flex;
+                align-items: center;
+                >.logo{
+                    height: 65px;
+                    margin: 0 1rem;
+                };
+            }
             >.header_info{
                display: flex;
                align-items: center;
                font-size: 0.8rem;
-               margin-bottom: 10px;
                gap: 0.4rem;
                >.header_link{
                 width: 50px;
