@@ -3,6 +3,7 @@ import AppJumbotron from './AppJumbotron.vue';
 import AppShowCars from './AppShowCars.vue';
 import AppSaleCar from './AppSaleCar.vue';
 import AppFeedback from './AppFeedback.vue';
+import AppRecentArticles from './AppRecentArticles.vue';
 export default {
     name: "AppMain",
     components: {
@@ -10,6 +11,7 @@ export default {
         AppShowCars,
         AppSaleCar,
         AppFeedback,
+        AppRecentArticles,
     },
     data() {
         return {
@@ -103,7 +105,38 @@ export default {
                     feedbackText: "A fast and reliable vehicle selling site. Rare quality website with hundreds of model vehicles",
                     imgPath: "testimonial4-1.png",
                     },
-            ],
+                ],
+            recentArticles:
+            [
+                {
+                    imgPath: "news-autocar-1-300x180.jpg",
+                    date: "06.07.2022",
+                    site_name:"Auto Car",
+                    title: "Why is BMW loved ?",
+                    text: "BMWs have a different line with their designs and almost [...]",
+                },
+                {
+                    imgPath: "news-autocar-2-300x180.jpg",
+                    date: "06.07.2022",
+                    site_name: "Auto Car",
+                    title: "How solid is audi ?",
+                    text: "According to Euro NCAP data with different test organizations, there [...]",
+                },
+                {
+                    imgPath: "news-autocar-5-300x180.jpg",
+                    date: "06.07.2022",
+                    site_name: "Auto Car",
+                    title: "What brand is Skoda?",
+                    text: "Skoda is one of the leading automotive manufacturers on the [...]",
+                },
+                {
+                    imgPath: "news-autocar-6-300x180.jpg",
+                    date: "06.07.2022",
+                    site_name: "Auto Car",
+                    title: "Is the Auris diesel?",
+                    text: "You will have a quieter vehicle that burns less than [...]",
+                },
+            ]
         }
     }
 }
@@ -113,6 +146,7 @@ export default {
     <AppShowCars :cars="cars" />
     <AppSaleCar />
     <AppFeedback :feedbackCard="feedbackCard" />
+    <AppRecentArticles :recentArticles="recentArticles" />
 </template>
 
 <style scoped>

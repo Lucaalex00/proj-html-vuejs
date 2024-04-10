@@ -25,7 +25,7 @@ export default {
             <div class="card_container">
                 <div class="card" v-for="fCard in feedbackCard">
                     <div> {{ fCard.feedbackText }}</div>
-                    <img :src="`../src/assets/img/${fCard.imgPath}`" :alt="`${fCard.name}`">
+                    <img :src="`../src/assets/img/${fCard.imgPath}`" :alt="`Image of ${fCard.name}`">
                     <div> {{ fCard.name }} </div>
                 </div>
             </div>
@@ -130,14 +130,20 @@ export default {
             gap: 0.5rem;
             height: 6px;
             >.left_bar{
-                width: 40%;
+                width: 60%;
                 background-color: var(--darkest-color);
                 border-radius: 10px;
+                &:hover {
+                        border: 1px solid var(--dark-color);
+                    }
             };
             >.right_bar{
                 width: 20%;
                 background-color: var(--dark-color);
                 border-radius: 10px;
+                &:hover{
+                    border: 1px solid var(--darkest-color);
+                }
             }
         }
     };
