@@ -30,12 +30,11 @@ export default {
         },
       ],
       Socials: 
-        {
-          facebookLogo: "fa-brands fa-facebook-f",
-          instagramLogo: "fa-brands fa-instagram",
-          twitterLogo: "fa-brands fa-twitter",
-        }
-      ,
+      {
+        facebookLogo: "fa-brands fa-facebook-f",
+        instagramLogo: "fa-brands fa-instagram",
+        twitterLogo: "fa-brands fa-twitter",
+      },
       Path:
       {
         logoHeader_path: "logo-autocar11.png",

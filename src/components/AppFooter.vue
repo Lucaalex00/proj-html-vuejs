@@ -40,9 +40,9 @@
                         <a href="#" v-for="social in Socials" :class="`${social}`"></a>
                     </div>
                 </li>
-                <!-- /.contacts -->
-
+                
             </ul>
+            <!-- /.contacts -->
             <ul class="newsletter">
                 <li class="newsletter_item">
                     <h3>Join Our Newsletter</h3>
@@ -54,14 +54,12 @@
                 </li>
             </ul>
             <!-- /.newsletter -->
-
             <div class="nav_footer">
                 <ul class="my_account" v-for="myAccItem in MyAccount">
                     <li>
                         <h3>My Account</h3>
                     </li>
                     <li class="my_account_item" v-for="myAccValue in myAccItem">
-                        <span>-</span>
                         <a href="#">
                             {{myAccValue}}
                         </a>
@@ -72,7 +70,6 @@
                         <h3>Quick Links</h3>
                     </li>
                     <li class="quick_links_item" v-for="quickLValue in quickLinkItem">
-                        <span>-</span>
                         <a href="#">
                             {{ quickLValue }}
                         </a>
@@ -83,6 +80,12 @@
             <!-- /.nav_footer -->
         </div>
         <!-- /.footer_container -->
+        <div class="credits">
+            <i class="fa-regular fa-copyright"></i>
+            2022 Autocar - All Right Reserved.
+            <div id="my_credits">Made by Luca Cirio</div>
+        </div>
+        <!-- /.credits -->
     </div>
     <!-- /#site_footer -->
 </template>
@@ -92,6 +95,7 @@
     #site_footer{
         background-color: var(--darkest-color);
         font-family: "Open Sans", sans-serif;
+        position: relative;
         >.footer_container{
             width: 100%;
             margin: auto;
@@ -147,19 +151,20 @@
                         display: flex;
                         flex-direction: column;
                         >p{
-                            font-size: 0.6rem;
+                            font-size: 0.7rem;
                             margin-bottom: 1rem
                         };
                         >.actions{
                         display: flex;
                         flex-direction: column;
-                        width: 100%;
+                        width: 90%;
                         gap: 0.2rem;
                         >input, >button{
                             border: 0;
                             border-radius: 2px;
                             height: 50px;
                             padding: 20px;
+                            width: 100%;
                             &+button{
                                 color:var(--dark-color);
                                 cursor: pointer;
@@ -189,20 +194,39 @@
                         display: flex;
                         align-items: center;
                         gap: 0.5rem;
-                        >span {
+                        &::before{
+                            content: '-';
                             font-weight: bold;
                             font-size: 1.3rem;
+
+                        }
+                        >span {
+                            
                         };
                         >a{
                             color: var(--lighter-color);
                             text-decoration: none;
                             &:hover{
                                 color: var(--dark-color)
-                            }
-                        }
+                            };
+                        };
                     };
                 };
-            }
+            };
         };
+        >.credits{
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: var(--lighter-color);
+            text-align: center;
+            >#my_credits{
+                position: absolute;
+                bottom:1rem;
+                right: 1rem;
+                &:hover{
+                    color: red;
+                }
+            }
+        }
     };
 </style>
