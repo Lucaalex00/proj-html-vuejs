@@ -17,7 +17,7 @@ export default {
 <template>
     <div id="site_header">
         <div class="header_container">
-            <div class="header_item" v-for="(headerItem, index) in Info" :key="index">
+            <div class="header_item" v-for="headerItem in Info">
                 <div>
                     <!-- Logo -->
                     <img class="logo" :src="`../src/assets/logos/${Path.logoHeader_path}`" alt="Logo">

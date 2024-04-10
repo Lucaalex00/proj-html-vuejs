@@ -43,6 +43,7 @@
 #site_recent_a {
     padding: 2rem;
     font-family: "Open Sans", sans-serif;
+    margin-bottom: 5%;
 
     >div {
         width: 80%;
